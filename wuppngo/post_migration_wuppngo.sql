@@ -129,7 +129,8 @@ INSERT INTO theme_variables (`id`, `key`, `value`, `theme_id`) VALUES
 
 insert into media (`id`, `name`, `mime_type`) values
 ('99ea7920-883a-433b-a5da-6f9db02787ab', 'logo', 'image/png'),
-('51fc224d-d7f5-4959-becc-9c3b5d1c2ab0', 'landing', 'image/jpeg');
+('51fc224d-d7f5-4959-becc-9c3b5d1c2ab0', 'landing', 'image/jpeg'),
+('c1134f9e-8943-4eb7-83fa-05d6c93ef8df', 'favicon', 'image/x-icon');
 
 /**
 
@@ -193,4 +194,5 @@ WHERE p.key = 'apple';
 **/
 
 insert into configurations (`id`, `key`, `value`, `media_id`) values
-('0fb04855-9e8b-49a1-8ed1-0f729ddc7b71', 'logo', null, '99ea7920-883a-433b-a5da-6f9db02787ab');
+('0fb04855-9e8b-49a1-8ed1-0f729ddc7b71', 'logo', null, '99ea7920-883a-433b-a5da-6f9db02787ab'),
+('dea5ca41-b2bb-4f4f-ac42-02b6ab5901bc', 'favicon', null, 'c1134f9e-8943-4eb7-83fa-05d6c93ef8df');

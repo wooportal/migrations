@@ -129,7 +129,8 @@ INSERT INTO theme_variables (`id`, `key`, `value`, `theme_id`) VALUES
 insert into media (`id`, `name`, `mime_type`) values
 ('7e56a759-5b49-49a5-9b80-c6f2feb404bb', 'logo', 'image/png'),
 ('448e1934-b903-4139-8ae3-f9db46b31c86', 'logo_text', 'image/png'),
-('276b0600-9a6a-4e69-ae40-78373d6f51df', 'landing', 'image/jpeg');
+('276b0600-9a6a-4e69-ae40-78373d6f51df', 'landing', 'image/jpeg'),
+('3b2e8ded-d570-4625-9c8b-1726a55ff88b', 'favicon', 'image/x-icon');
 
 /**
 
@@ -194,4 +195,5 @@ WHERE p.key = 'apple';
 
 insert into configurations (`id`, `key`, `value`, `media_id`) values
 ('940f8ad3-04d0-4241-9280-22ea245c24b3', 'logo', null, '7e56a759-5b49-49a5-9b80-c6f2feb404bb'),
-('c6592816-c049-431d-9588-edf51cf74c7b', 'logo_text', null, '448e1934-b903-4139-8ae3-f9db46b31c86');
+('c6592816-c049-431d-9588-edf51cf74c7b', 'logo_text', null, '448e1934-b903-4139-8ae3-f9db46b31c86'),
+('5aec02a8-0dfb-4330-ac52-7f6e5c565e25', 'favicon', null, '3b2e8ded-d570-4625-9c8b-1726a55ff88b');
