@@ -130,7 +130,7 @@ INSERT INTO theme_variables (`id`, `key`, `value`, `theme_id`) VALUES
 insert into media (`id`, `name`, `mime_type`) values
 ('99ea7920-883a-433b-a5da-6f9db02787ab', 'logo', 'image/png'),
 ('51fc224d-d7f5-4959-becc-9c3b5d1c2ab0', 'landing', 'image/jpg'),
-('c1134f9e-8943-4eb7-83fa-05d6c93ef8df', 'favicon', 'image/x-icon');
+('c1134f9e-8943-4eb7-83fa-05d6c93ef8df', 'favicon', 'image/ico');
 
 /**
 

@@ -130,7 +130,7 @@ insert into media (`id`, `name`, `mime_type`) values
 ('7e56a759-5b49-49a5-9b80-c6f2feb404bb', 'logo', 'image/png'),
 ('448e1934-b903-4139-8ae3-f9db46b31c86', 'logo_text', 'image/png'),
 ('276b0600-9a6a-4e69-ae40-78373d6f51df', 'landing', 'image/jpg'),
-('3b2e8ded-d570-4625-9c8b-1726a55ff88b', 'favicon', 'image/x-icon');
+('3b2e8ded-d570-4625-9c8b-1726a55ff88b', 'favicon', 'image/ico');
 
 /**
 
