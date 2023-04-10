@@ -138,7 +138,7 @@ insert into media (`id`, `name`, `mime_type`) values
 
 **/
 
-insert into pages (`id`, `slug`, `seo_description`, `is_landing`, `call_url`)
+insert into pages (`id`, `title_image_id`, `slug`, `seo_description`, `is_landing`, `call_url`)
 select '7cefc60c-8325-4861-90c7-97f1e8eeb290', '34f98355-5278-45ef-aeff-1089006ebdd4', 'landing', ' The Wooportal is aimed at all immigrant young women who live in Wuppertal and want to find out about integration offers', true, 'https://yourway.news/articles';
 
 insert into page_translatables (`id`, `name`, `short_description`, `call_text`, `parent_id`, `language_id`)
