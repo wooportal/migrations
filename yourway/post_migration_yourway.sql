@@ -171,6 +171,16 @@ select uuid(), 3, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.key = 'contests';
 
+insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+select uuid(), 4, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
+from features f
+WHERE f.key = 'calendar';
+
+insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+select uuid(), 5, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
+from features f
+WHERE f.key = 'reports';
+
 /**
 
   APPS 
