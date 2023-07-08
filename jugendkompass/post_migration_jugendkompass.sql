@@ -126,11 +126,11 @@ INSERT INTO theme_variables (`id`, `key`, `value`, `theme_id`) VALUES
 
 **/
 
-insert into media (`id`, `name`, `mime_type`) values
-('7e56a759-5b49-49a5-9b80-c6f2feb404bb', 'logo', 'image/png'),
-('448e1934-b903-4139-8ae3-f9db46b31c86', 'logo_text', 'image/png'),
-('276b0600-9a6a-4e69-ae40-78373d6f51df', 'landing', 'image/jpg'),
-('3b2e8ded-d570-4625-9c8b-1726a55ff88b', 'favicon', 'image/ico');
+insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
+('7e56a759-5b49-49a5-9b80-c6f2feb404bb', 'logo', 'image/png', 'png', 21000),
+('448e1934-b903-4139-8ae3-f9db46b31c86', 'logo_text', 'image/png', 'png', 34300),
+('276b0600-9a6a-4e69-ae40-78373d6f51df', 'landing', 'image/jpg', 'jpg', 83900),
+('3b2e8ded-d570-4625-9c8b-1726a55ff88b', 'favicon', 'image/ico', 'ico', 15400);
 
 /**
 
@@ -138,8 +138,11 @@ insert into media (`id`, `name`, `mime_type`) values
 
 **/
 
-insert into pages (`id`, `title_image_id`, `slug`, `seo_description`, `is_landing`, `call_url`)
-select '7cefc60c-8325-4861-90c7-97f1e8eeb290', '276b0600-9a6a-4e69-ae40-78373d6f51df', 'landing', 'The Youth Compass is your platform by and for children and young people! Join in and exchange ideas about everything that moves you in Dinslaken and the surrounding area.', true, 'https://jugendkompass-din.de/signup';
+insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`)
+select '7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', 'The Youth Compass is your platform by and for children and young people! Join in and exchange ideas about everything that moves you in Dinslaken and the surrounding area.', true, 'https://jugendkompass-din.de/user/login';
+
+insert into page_media (id, media_id, page_id, title) values
+(uuid(), '276b0600-9a6a-4e69-ae40-78373d6f51df', '7cefc60c-8325-4861-90c7-97f1e8eeb290', true);
 
 insert into page_translatables (`id`, `name`, `short_description`, `call_text`, `parent_id`, `language_id`)
 select uuid(), 'Jugendkompass', 'The Youth Compass is your platform by and for children and young people! Join in and exchange ideas about everything that moves you in Dinslaken and the surrounding area. ', 'Signup now and participate', p.id, l.id
