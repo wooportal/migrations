@@ -127,10 +127,10 @@ INSERT INTO theme_variables (`id`, `key`, `value`, `theme_id`) VALUES
 
 **/
 
-insert into media (`id`, `name`, `mime_type`) values
-('d4f9eb69-d4a8-4a3b-901a-f50f2a6c4c74', 'logo', 'image/png'),
-('88256980-80d7-40ac-a7f3-65664d8ae344', 'landing', 'image/jpg'),
-('c0fa55a6-4fa5-4719-8780-d0895b596521', 'favicon', 'image/ico');
+insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
+('d4f9eb69-d4a8-4a3b-901a-f50f2a6c4c74', 'logo', 'image/png', 'png', 152500),
+('88256980-80d7-40ac-a7f3-65664d8ae344', 'landing', 'image/jpg', 'jpg', 83900),
+('c0fa55a6-4fa5-4719-8780-d0895b596521', 'favicon', 'image/ico', 'ico', 15400);
 
 /**
 
@@ -138,8 +138,11 @@ insert into media (`id`, `name`, `mime_type`) values
 
 **/
 
-insert into pages (`id`, `title_image_id`, `slug`, `seo_description`, `is_landing`, `call_url`)
-select '7cefc60c-8325-4861-90c7-97f1e8eeb290', '88256980-80d7-40ac-a7f3-65664d8ae344', 'landing', 'An offer portal for integration and encounters in Wuppertal', true, 'https://wupportal.org/about-us';
+insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`)
+select '7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', 'An offer portal for integration and encounters in Wuppertal', true, 'https://wupportal.org/about-us';
+
+insert into page_media (id, media_id, page_id, title) values
+(uuid(), '88256980-80d7-40ac-a7f3-65664d8ae344', '7cefc60c-8325-4861-90c7-97f1e8eeb290', true);
 
 insert into page_translatables (`id`, `name`, `short_description`, `call_text`, `parent_id`, `language_id`)
 select uuid(), 'Wupportal', 'An offer portal for integration and encounters in Wuppertal', 'Discover more', p.id, l.id
