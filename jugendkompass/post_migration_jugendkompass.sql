@@ -219,19 +219,19 @@ insert into configurations (`id`, `key`, `value`, `media_id`) values
 
 /* Entdecken Menu */
 ('0115fe46-3a7e-4377-abe5-f56f720bf3d9', true, 0, null, null, null, null),
-('8804707f-f80d-4987-bb86-42d16ba570dd', true, 2, '0115fe46-3a7e-4377-abe5-f56f720bf3d9', '8f1faa18-3204-4ab1-9f71-18317d1a3d89', null, 'tags'),
-('d443f235-fe72-41a6-b7d2-1554047048d5', true, 3, '0115fe46-3a7e-4377-abe5-f56f720bf3d9', 'b93928cc-ec57-4848-96af-26d8284ffcd1', null, 'map-location-dot'),
-('ff3ae469-f496-4dd8-bf2d-213566e2a0f9', true, 4, '0115fe46-3a7e-4377-abe5-f56f720bf3d9', '41cdbfa8-e751-41d4-b893-5c7215ec55e9', null, 'calendar-days'),
+('8804707f-f80d-4987-bb86-42d16ba570dd', true, 2, '0115fe46-3a7e-4377-abe5-f56f720bf3d9', '8f1faa18-3204-4ab1-9f71-18317d1a3d89', null, 'tags'), -- Deals
+('d443f235-fe72-41a6-b7d2-1554047048d5', true, 3, '0115fe46-3a7e-4377-abe5-f56f720bf3d9', 'b93928cc-ec57-4848-96af-26d8284ffcd1', null, 'map-location-dot'), -- Map
+('ff3ae469-f496-4dd8-bf2d-213566e2a0f9', true, 4, '0115fe46-3a7e-4377-abe5-f56f720bf3d9', '41cdbfa8-e751-41d4-b893-5c7215ec55e9', null, 'calendar-days'), -- Calendar
 
 /* Erfahren Menu */
 ('7a8cc14b-49e4-4f53-a86f-11aa6e2db95e', true, 1, null, null, null, null),
-('fa345abe-b311-451e-abe2-9583fc6fb000', true, 1, '7a8cc14b-49e4-4f53-a86f-11aa6e2db95e', 'cf2b4b5d-df3a-4f79-9cfd-61679c57bd16', null, 'pen-fancy'),
-('e5441241-dbc1-4410-9a93-3d0a921c9eee', true, 2, '7a8cc14b-49e4-4f53-a86f-11aa6e2db95e', '909fca09-78bb-42dd-95d0-164ceb1d9192', null, 'photo-film'),
+('fa345abe-b311-451e-abe2-9583fc6fb000', true, 1, '7a8cc14b-49e4-4f53-a86f-11aa6e2db95e', 'cf2b4b5d-df3a-4f79-9cfd-61679c57bd16', null, 'pen-fancy'), -- Authors
+('e5441241-dbc1-4410-9a93-3d0a921c9eee', true, 2, '7a8cc14b-49e4-4f53-a86f-11aa6e2db95e', '909fca09-78bb-42dd-95d0-164ceb1d9192', null, 'photo-film'), -- Media
 
 /* Mitmachen Menu */
 ('b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', true, 2, null, null, null, null),
-('555d678d-954f-43c9-ae63-5329df968da2', true, 0, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', '0633fd36-707a-42ee-878f-21e43f458aa9', null, 'user-pen'),
-('cd16fa6f-8a80-42d9-9174-0b981ed028c2', true, 1, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', 'bc1e70f7-5e83-484a-8f44-2a6485727ce9', null, 'message');
+('555d678d-954f-43c9-ae63-5329df968da2', true, 0, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', '0633fd36-707a-42ee-878f-21e43f458aa9', null, 'user-pen'), -- Guestarticle 
+('cd16fa6f-8a80-42d9-9174-0b981ed028c2', true, 1, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', 'bc1e70f7-5e83-484a-8f44-2a6485727ce9', null, 'message'); -- Reports / Feedback
 
 
 /*
