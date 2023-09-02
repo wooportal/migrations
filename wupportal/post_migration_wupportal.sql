@@ -154,32 +154,32 @@ select uuid(), 'Wupportal', 'Ein Angebotsportal für Integration und Begegnung i
 from pages p, languages l
 WHERE p.is_landing = true AND l.locale = 'de';
 
-insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 0, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.key = 'events';
 
-insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 1, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.key = 'articles';
 
-insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 2, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.key = 'surveys';
 
-insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 3, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.key = 'contests';
 
-insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 4, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.key = 'calendar';
 
-insert into page_features (`id`, `order`, `feature_id`, `page_id`)
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 5, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.key = 'reports';
