@@ -5,7 +5,7 @@ INSERT INTO themes (`id`, `is_default`, `name`) VALUES
 ('eb698cb4-c9ed-49e1-94fd-deb0002f4c3d', true, 'default');
 
 
-INSERT INTO theme_variables (`id`, `key`, `value`, `theme_id`) VALUES
+INSERT INTO theme_variables (`id`, `code`, `value`, `theme_id`) VALUES
 (uuid(), trim('--color-primary-50           '), '#e0edee', 'eb698cb4-c9ed-49e1-94fd-deb0002f4c3d'),
 (uuid(), trim('--color-primary-100          '), '#b3d3d5', 'eb698cb4-c9ed-49e1-94fd-deb0002f4c3d'),
 (uuid(), trim('--color-primary-200          '), '#80b6b9', 'eb698cb4-c9ed-49e1-94fd-deb0002f4c3d'),
@@ -157,32 +157,32 @@ WHERE p.is_landing = true AND l.locale = 'de';
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 0, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'events';
+WHERE f.code = 'events';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 1, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'articles';
+WHERE f.code = 'articles';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 2, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'surveys';
+WHERE f.code = 'surveys';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 3, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'contests';
+WHERE f.code = 'contests';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 4, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'calendar';
+WHERE f.code = 'calendar';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 5, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'reports';
+WHERE f.code = 'reports';
 
 /**
 
@@ -193,12 +193,12 @@ WHERE f.key = 'reports';
 insert into apps (`id`, `platform_id`, `url`)
 select uuid(), p.id, 'https://play.google.com/store/apps/details?id=de.codeschluss.wupportal'
 from app_platforms p 
-WHERE p.key = 'google';
+WHERE p.code = 'google';
 
 insert into apps (`id`, `platform_id`, `url`)
 select uuid(), p.id, 'https://apps.apple.com/app/id1497493082'
 from app_platforms p
-WHERE p.key = 'apple';
+WHERE p.code = 'apple';
 
 /**
 
@@ -206,7 +206,7 @@ WHERE p.key = 'apple';
 
 **/
 
-insert into configurations (`id`, `key`, `value`, `media_id`) values
+insert into configurations (`id`, `code`, `value`, `media_id`) values
 ('26ce9292-2ccb-48d0-857e-fe305ef2cb43', 'logo', null, 'd4f9eb69-d4a8-4a3b-901a-f50f2a6c4c74'),
 ('b290bf01-e6a7-4d92-b4fa-3a9593ab58b6', 'favicon', null, 'c0fa55a6-4fa5-4719-8780-d0895b596521');
 
@@ -215,6 +215,7 @@ insert into configurations (`id`, `key`, `value`, `media_id`) values
   MENU 
 
 **/
+insert into menu_items (id, header, `order`, `parent_id`, `feature_id`, `page_id`, `icon`) values
 
 /* Entdecken Menu */
 ('0115fe46-3a7e-4377-abe5-f56f720bf3d9', true, 0, null, null, null, null),

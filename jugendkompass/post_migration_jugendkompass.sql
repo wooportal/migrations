@@ -4,7 +4,7 @@
 INSERT INTO themes (`id`, `is_default`, `name`) VALUES 
 ('587cffb4-7d02-4165-b621-1ea359975d36', true, 'default');
 
-INSERT INTO theme_variables (`id`, `key`, `value`, `theme_id`) VALUES
+INSERT INTO theme_variables (`id`, `code`, `value`, `theme_id`) VALUES
 (uuid(), trim('--color-primary-50           '), '#fbeae8', '587cffb4-7d02-4165-b621-1ea359975d36'),
 (uuid(), trim('--color-primary-100          '), '#f6c9c7', '587cffb4-7d02-4165-b621-1ea359975d36'),
 (uuid(), trim('--color-primary-200          '), '#f0a6a1', '587cffb4-7d02-4165-b621-1ea359975d36'),
@@ -157,32 +157,32 @@ WHERE p.is_landing = true AND l.locale = 'de';
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 0, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'events';
+WHERE f.code = 'events';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 1, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'articles';
+WHERE f.code = 'articles';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 2, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'surveys';
+WHERE f.code = 'surveys';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 3, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'contests';
+WHERE f.code = 'contests';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 4, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'calendar';
+WHERE f.code = 'calendar';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 5, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
-WHERE f.key = 'reports';
+WHERE f.code = 'reports';
 
 /**
 
@@ -193,12 +193,12 @@ WHERE f.key = 'reports';
 insert into apps (`id`, `platform_id`, `url`)
 select uuid(), p.id, 'https://play.google.com/store/apps/details?id=de.codeschluss.jugendkompass'
 from app_platforms p 
-WHERE p.key = 'google';
+WHERE p.code = 'google';
 
 insert into apps (`id`, `platform_id`, `url`)
 select uuid(), p.id, 'https://apps.apple.com/app/id1601610346'
 from app_platforms p
-WHERE p.key = 'apple';
+WHERE p.code = 'apple';
 
 /**
 
@@ -206,7 +206,7 @@ WHERE p.key = 'apple';
 
 **/
 
-insert into configurations (`id`, `key`, `value`, `media_id`) values
+insert into configurations (`id`, `code`, `value`, `media_id`) values
 ('940f8ad3-04d0-4241-9280-22ea245c24b3', 'logo', null, '7e56a759-5b49-49a5-9b80-c6f2feb404bb'),
 ('c6592816-c049-431d-9588-edf51cf74c7b', 'logoText', null, '448e1934-b903-4139-8ae3-f9db46b31c86'),
 ('5aec02a8-0dfb-4330-ac52-7f6e5c565e25', 'favicon', null, '3b2e8ded-d570-4625-9c8b-1726a55ff88b');
@@ -216,6 +216,7 @@ insert into configurations (`id`, `key`, `value`, `media_id`) values
   MENU 
 
 **/
+insert into menu_items (id, header, `order`, `parent_id`, `feature_id`, `page_id`, `icon`) values
 
 /* Entdecken Menu */
 ('0115fe46-3a7e-4377-abe5-f56f720bf3d9', true, 0, null, null, null, null),
