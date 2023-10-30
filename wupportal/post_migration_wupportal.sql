@@ -164,16 +164,6 @@ select uuid(), 1, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
 WHERE f.code = 'articles';
 
--- insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
--- select uuid(), 2, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
--- from features f
--- WHERE f.code = 'surveys';
-
--- insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
--- select uuid(), 3, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
--- from features f
--- WHERE f.code = 'contests';
-
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 4, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
 from features f
