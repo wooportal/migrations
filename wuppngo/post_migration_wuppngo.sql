@@ -130,7 +130,8 @@ INSERT INTO theme_variables (`id`, `code`, `value`, `theme_id`) VALUES
 insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
 ('99ea7920-883a-433b-a5da-6f9db02787ab', 'logo', 'image/png', 'png', 153100),
 ('51fc224d-d7f5-4959-becc-9c3b5d1c2ab0', 'landing', 'image/jpg', 'jpg', 83900),
-('c1134f9e-8943-4eb7-83fa-05d6c93ef8df', 'favicon', 'image/ico', 'ico', 15400);
+('c1134f9e-8943-4eb7-83fa-05d6c93ef8df', 'favicon', 'image/ico', 'ico', 15400),
+('5ca4ca23-6e26-49ad-a75c-673337c83eee', 'developer_title', 'image/jpeg', 'jpg', 25649);
 
 /**
 
@@ -138,11 +139,13 @@ insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
 
 **/
 
-insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`)
-select '7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', "Whether at home, in the Internet café or on your smartphone. Wupp'n'go provides you with information about the latest events in Wuppertal from anywhere. Simply filter by categories, neighborhoods or audiences and see only the events you need.", true, 'https://wuppngo.de/about-us';
+insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`) values
+('7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', "Whether at home, in the Internet café or on your smartphone. Wupp'n'go provides you with information about the latest events in Wuppertal from anywhere. Simply filter by categories, neighborhoods or audiences and see only the events you need.", true, 'https://wuppngo.de/about-us'),
+('3acf644c-9f71-4209-8aaa-5549bf14edfb', 'developer', 'About the developers', 0, 'https://www.codeschluss.de/');
 
 insert into page_media (id, media_id, page_id, title) values
-(uuid(), '51fc224d-d7f5-4959-becc-9c3b5d1c2ab0', '7cefc60c-8325-4861-90c7-97f1e8eeb290', true);
+(uuid(), '51fc224d-d7f5-4959-becc-9c3b5d1c2ab0', '7cefc60c-8325-4861-90c7-97f1e8eeb290', true),
+(uuid(), '5ca4ca23-6e26-49ad-a75c-673337c83eee', '3acf644c-9f71-4209-8aaa-5549bf14edfb', true);
 
 insert into page_translatables (`id`, `name`, `short_description`, `call_text`, `parent_id`, `language_id`)
 select uuid(), "Wupp'n'go", "Whether at home, in the Internet café or on your smartphone. Wupp'n'go provides you with information about the latest events in Wuppertal from anywhere. Simply filter by categories, neighborhoods or audiences and see only the events you need.", 'Discover more', p.id, l.id
@@ -153,6 +156,11 @@ insert into page_translatables (`id`, `name`, `short_description`, `call_text`, 
 select uuid(), "Wupp'n'go", "Ob Zuhause, im Internetcafé oder auf dem Smartphone. Wupp'n'go versorgt Dich von überall mit den Infos zu den neusten Veranstaltungen in Wuppertal. Einfach nach Kategorien, Stadtteilen oder Zielgruppen filtern und nur die Veranstaltungen sehen, die Du gerade brauchst.", 'Mehr entdecken', p.id, l.id
 from pages p, languages l
 WHERE p.is_landing = true AND l.locale = 'de';
+
+insert into page_translatables (`id`, `name`, `content`, `call_text`, `parent_id`, `language_id`)
+select uuid(), 'Über die Entwickler', '<h3>Über die Entwickler und das Portal</h3><p>Wir sind ein junges Start-Up Unternehmen aus Köln und Ulm, dass ständig daran arbeitet das Portal und die Community zu vergrößern und insbesondere zu verbessern.</p><p><br>Das Portal steht auch als Open Source zur Verfügung.</p><p>&nbsp;</p><h3>Wir sind für dich da!</h3><p>Hast du Fragen an uns oder Fragen über das Portal? Dann nehme direkt Kontakt mit uns auf. Wir freuen uns, wenn wir weiterhelfen können.</p><p>&nbsp;</p><h3>Kontaktdaten</h3><h4>E-Mail-Adresse: <a href=\"mailto:info@codeschluss.de\">mailto:info@codeschluss.de</a></h4><h4>Anschrift:</h4><p>Etemi &amp; Schildkamp GbR<br>Codeschluss<br>Ankerstraße 21-23<br>50676 Köln</p>', 'Webseite', p.id, l.id
+from pages p, languages l
+WHERE p.id = '3acf644c-9f71-4209-8aaa-5549bf14edfb' AND l.locale = 'de';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 0, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
@@ -171,6 +179,11 @@ WHERE f.code = 'calendar';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 5, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
+from features f
+WHERE f.code = 'reports';
+
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
+select uuid(), 0, f.id, '3acf644c-9f71-4209-8aaa-5549bf14edfb'
 from features f
 WHERE f.code = 'reports';
 
@@ -249,7 +262,8 @@ insert into menu_items (id, header, `order`, `parent_id`, `feature_id`, `page_id
 
 /* Portal Menu */
 ('07ac9f06-e89c-41a4-b980-c88e3817ed63', false, 3, null, null, null, null),
-('5c3747e3-504a-4ccf-ac43-770f0fb4fad6', false, 0, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, 'cae39231-bfd5-4d90-94df-1d7a24ea8170', null); /* Data protection */
+('922d8953-5bac-40ad-9a3d-4fb85723a8e5', false, 0, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, '3acf644c-9f71-4209-8aaa-5549bf14edfb', null), /* Developer */
+('5c3747e3-504a-4ccf-ac43-770f0fb4fad6', false, 1, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, 'cae39231-bfd5-4d90-94df-1d7a24ea8170', null); /* Data protection */
 
 /*
   Add Menu Data and migrate existing features
@@ -430,6 +444,16 @@ WHERE l.locale = "de";
 
 insert into menu_item_translatables (id, `name`, parent_id, language_id)
 select uuid(), "Portal", "07ac9f06-e89c-41a4-b980-c88e3817ed63", l.id
+from languages l
+WHERE l.locale = "en";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Entwickler", "922d8953-5bac-40ad-9a3d-4fb85723a8e5", l.id
+from languages l
+WHERE l.locale = "de";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Developer", "922d8953-5bac-40ad-9a3d-4fb85723a8e5", l.id
 from languages l
 WHERE l.locale = "en";
 
