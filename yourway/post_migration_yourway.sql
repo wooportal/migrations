@@ -130,7 +130,8 @@ INSERT INTO theme_variables (`id`, `code`, `value`, `theme_id`) VALUES
 insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
 ('f92a0515-c43c-4edb-8077-1cd788dfcfaf', 'logo', 'image/png', 'png', 34500),
 ('34f98355-5278-45ef-aeff-1089006ebdd4', 'landing', 'image/jpg', 'jpg', 83900),
-('28d9e68e-5126-40a5-8571-82ba56cbfa58', 'favicon', 'image/ico', 'ico', 15400);
+('28d9e68e-5126-40a5-8571-82ba56cbfa58', 'favicon', 'image/ico', 'ico', 15400),
+('5ca4ca23-6e26-49ad-a75c-673337c83eee', 'developer_title', 'image/jpeg', 'jpg', 25649);
 
 /**
 
@@ -138,11 +139,13 @@ insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
 
 **/
 
-insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`)
-select '7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', ' The Wooportal is aimed at all immigrant young women who live in Wuppertal and want to find out about integration offers', true, 'https://yourway.news/articles';
+insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`) values
+('7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', ' The Wooportal is aimed at all immigrant young women who live in Wuppertal and want to find out about integration offers', true, 'https://yourway.news/articles'),
+('3acf644c-9f71-4209-8aaa-5549bf14edfb', 'developer', 'About the developers', 0, 'https://www.codeschluss.de/');
 
 insert into page_media (id, media_id, page_id, title) values
-(uuid(), '34f98355-5278-45ef-aeff-1089006ebdd4', '7cefc60c-8325-4861-90c7-97f1e8eeb290', true);
+(uuid(), '34f98355-5278-45ef-aeff-1089006ebdd4', '7cefc60c-8325-4861-90c7-97f1e8eeb290', true),
+(uuid(), '5ca4ca23-6e26-49ad-a75c-673337c83eee', '3acf644c-9f71-4209-8aaa-5549bf14edfb', true);
 
 insert into page_translatables (`id`, `name`, `short_description`, `call_text`, `parent_id`, `language_id`)
 select uuid(), 'Y♀urWay!',  'The Wooportal is aimed at all immigrant young women who live in Wuppertal and want to find out about integration offers', 'Discover more', p.id, l.id
@@ -153,6 +156,11 @@ insert into page_translatables (`id`, `name`, `short_description`, `call_text`, 
 select uuid(), 'Y♀urWay!', 'Die App Y♀urWay! ist eine Angebotsportal für Integration und Begegnung. Diese richtet sich an alle zugewanderten jungen Frauen, die in Wuppertal leben und sich zum Thema Angebote zur Integration informieren möchten.', 'Entdecke mehr', p.id, l.id
 from pages p, languages l
 WHERE p.is_landing = true AND l.locale = 'de';
+
+insert into page_translatables (`id`, `name`, `content`, `call_text`, `parent_id`, `language_id`)
+select uuid(), 'Über die Entwickler', '<h3>Über die Entwickler und das Portal</h3><p>Wir sind ein junges Start-Up Unternehmen aus Köln und Ulm, dass ständig daran arbeitet das Portal und die Community zu vergrößern und insbesondere zu verbessern.</p><p><br>Das Portal steht auch als Open Source zur Verfügung.</p><p>&nbsp;</p><h3>Wir sind für dich da!</h3><p>Hast du Fragen an uns oder Fragen über das Portal? Dann nehme direkt Kontakt mit uns auf. Wir freuen uns, wenn wir weiterhelfen können.</p><p>&nbsp;</p><h3>Kontaktdaten</h3><h4>E-Mail-Adresse: <a href=\"mailto:info@codeschluss.de\">mailto:info@codeschluss.de</a></h4><h4>Anschrift:</h4><p>Etemi &amp; Schildkamp GbR<br>Codeschluss<br>Ankerstraße 21-23<br>50676 Köln</p>', 'Webseite', p.id, l.id
+from pages p, languages l
+WHERE p.id = '3acf644c-9f71-4209-8aaa-5549bf14edfb' AND l.locale = 'de';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 0, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
@@ -171,6 +179,11 @@ WHERE f.code = 'calendar';
 
 insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
 select uuid(), 5, f.id, '7cefc60c-8325-4861-90c7-97f1e8eeb290'
+from features f
+WHERE f.code = 'reports';
+
+insert into page_embeddings (`id`, `order`, `feature_id`, `page_id`)
+select uuid(), 0, f.id, '3acf644c-9f71-4209-8aaa-5549bf14edfb'
 from features f
 WHERE f.code = 'reports';
 
@@ -243,7 +256,11 @@ insert into menu_items (id, header, `order`, `parent_id`, `feature_id`, `page_id
 /* Mitmachen Menu */
 ('b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', true, 2, null, null, null, null),
 ('555d678d-954f-43c9-ae63-5329df968da2', true, 0, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', '0633fd36-707a-42ee-878f-21e43f458aa9', null, 'user-pen'), -- Guestarticle 
-('cd16fa6f-8a80-42d9-9174-0b981ed028c2', true, 1, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', 'bc1e70f7-5e83-484a-8f44-2a6485727ce9', null, 'message'); -- Reports / Feedback
+('cd16fa6f-8a80-42d9-9174-0b981ed028c2', true, 1, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', 'bc1e70f7-5e83-484a-8f44-2a6485727ce9', null, 'message'), -- Reports / Feedback
+
+/* Portal Menu */
+('07ac9f06-e89c-41a4-b980-c88e3817ed63', false, 3, null, null, null, null),
+('922d8953-5bac-40ad-9a3d-4fb85723a8e5', false, 0, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, '3acf644c-9f71-4209-8aaa-5549bf14edfb', null), /* Developer */
 
 
 /*
@@ -415,5 +432,25 @@ WHERE l.locale = "de";
 
 insert into menu_item_translatables (id, `name`, parent_id, language_id, short_description)
 select uuid(), "Calendar", "ff3ae469-f496-4dd8-bf2d-213566e2a0f9", l.id, "Don't miss an event"
+from languages l
+WHERE l.locale = "en";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Portal", "07ac9f06-e89c-41a4-b980-c88e3817ed63", l.id
+from languages l
+WHERE l.locale = "de";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Portal", "07ac9f06-e89c-41a4-b980-c88e3817ed63", l.id
+from languages l
+WHERE l.locale = "en";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Entwickler", "922d8953-5bac-40ad-9a3d-4fb85723a8e5", l.id
+from languages l
+WHERE l.locale = "de";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Developer", "922d8953-5bac-40ad-9a3d-4fb85723a8e5", l.id
 from languages l
 WHERE l.locale = "en";
