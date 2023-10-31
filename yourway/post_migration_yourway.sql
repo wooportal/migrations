@@ -260,7 +260,7 @@ insert into menu_items (id, header, `order`, `parent_id`, `feature_id`, `page_id
 
 /* Portal Menu */
 ('07ac9f06-e89c-41a4-b980-c88e3817ed63', false, 3, null, null, null, null),
-('922d8953-5bac-40ad-9a3d-4fb85723a8e5', false, 0, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, '3acf644c-9f71-4209-8aaa-5549bf14edfb', null), /* Developer */
+('922d8953-5bac-40ad-9a3d-4fb85723a8e5', false, 0, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, '3acf644c-9f71-4209-8aaa-5549bf14edfb', null); /* Developer */
 
 
 /*
