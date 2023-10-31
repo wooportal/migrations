@@ -245,8 +245,12 @@ insert into menu_items (id, header, `order`, `parent_id`, `feature_id`, `page_id
 /* Mitmachen Menu */
 ('b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', true, 2, null, null, null, null),
 ('555d678d-954f-43c9-ae63-5329df968da2', true, 0, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', '0633fd36-707a-42ee-878f-21e43f458aa9', null, 'user-pen'), -- Guestarticle 
-('cd16fa6f-8a80-42d9-9174-0b981ed028c2', true, 1, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', 'bc1e70f7-5e83-484a-8f44-2a6485727ce9', null, 'message'); -- Reports / Feedback
+('cd16fa6f-8a80-42d9-9174-0b981ed028c2', true, 1, 'b1d9d0ba-7f07-4ccc-acf0-aa96052e85e8', 'bc1e70f7-5e83-484a-8f44-2a6485727ce9', null, 'message'), -- Reports / Feedback
 
+/* Portal Menu */
+('07ac9f06-e89c-41a4-b980-c88e3817ed63', false, 3, null, null, null, null),
+('5c3747e3-504a-4ccf-ac43-770f0fb4fad6', false, 0, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, 'cae39231-bfd5-4d90-94df-1d7a24ea8170', null), /* Impress */
+('7e66887e-be30-4f79-be7e-ee80710efb3f', false, 1, '07ac9f06-e89c-41a4-b980-c88e3817ed63', null, 'b5c47bbc-4d95-4455-bb1f-6f37a5aa7924', null); /* Contact */
 
 /*
   Add Menu Data and migrate existing features
@@ -427,5 +431,35 @@ WHERE l.locale = "de";
 
 insert into menu_item_translatables (id, `name`, parent_id, language_id, short_description)
 select uuid(), "Calendar", "ff3ae469-f496-4dd8-bf2d-213566e2a0f9", l.id, "Don't miss an event"
+from languages l
+WHERE l.locale = "en";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Portal", "07ac9f06-e89c-41a4-b980-c88e3817ed63", l.id
+from languages l
+WHERE l.locale = "de";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Portal", "07ac9f06-e89c-41a4-b980-c88e3817ed63", l.id
+from languages l
+WHERE l.locale = "en";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Impressum", "5c3747e3-504a-4ccf-ac43-770f0fb4fad6", l.id
+from languages l
+WHERE l.locale = "de";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Impressum", "5c3747e3-504a-4ccf-ac43-770f0fb4fad6", l.id
+from languages l
+WHERE l.locale = "en";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Konakt", "7e66887e-be30-4f79-be7e-ee80710efb3f", l.id
+from languages l
+WHERE l.locale = "de";
+
+insert into menu_item_translatables (id, `name`, parent_id, language_id)
+select uuid(), "Contact", "7e66887e-be30-4f79-be7e-ee80710efb3f", l.id
 from languages l
 WHERE l.locale = "en";
