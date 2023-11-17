@@ -140,7 +140,7 @@ insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
 **/
 
 insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`) values
-('7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', 'The Youth Compass is your platform by and for children and young people! Join in and exchange ideas about everything that moves you in Dinslaken and the surrounding area.', true, 'https://jugendkompass-din.de/user/login'),
+('7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', 'The Youth Compass is your platform by and for children and young people! Join in and exchange ideas about everything that moves you in Dinslaken and the surrounding area.', true, 'https://www.jugendkompass-din.de/account/login'),
 ('3acf644c-9f71-4209-8aaa-5549bf14edfb', 'developer', 'About the developers', 0, 'https://www.codeschluss.de/');
 
 insert into page_media (id, media_id, page_id, title) values

@@ -140,7 +140,7 @@ insert into media (`id`, `name`, `mime_type`, `extension`, `size`) values
 **/
 
 insert into pages (`id`, `slug`, `meta_description`, `is_landing`, `call_url`) values
-('7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', "Whether at home, in the Internet café or on your smartphone. Wupp'n'go provides you with information about the latest events in Wuppertal from anywhere. Simply filter by categories, neighborhoods or audiences and see only the events you need.", true, 'https://wuppngo.de/about-us'),
+('7cefc60c-8325-4861-90c7-97f1e8eeb290', 'landing', "Whether at home, in the Internet café or on your smartphone. Wupp'n'go provides you with information about the latest events in Wuppertal from anywhere. Simply filter by categories, neighborhoods or audiences and see only the events you need.", true, 'https://www.wuppngo.de/portal/about-us'),
 ('3acf644c-9f71-4209-8aaa-5549bf14edfb', 'developer', 'About the developers', 0, 'https://www.codeschluss.de/');
 
 insert into page_media (id, media_id, page_id, title) values
